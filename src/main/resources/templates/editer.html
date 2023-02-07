@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Site</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="nav justify-content-center w-100">
+            <a class="nav-link active" href="/" aria-current="page">home</a>
+            <a class="nav-link" href="/ajouter">ajouter</a>
+
+        </nav>
+        <div class="row mt-lg-5 justify-content-center">
+            <div class="col-6">
+                <form th:action="@{/update}" method="get" th:object="${User}">
+                    <input type="hidden" name="code" th:field="*{id}" />
+                    <div class="mb-3">
+                        <label for="" class="form-label">nom</label>
+                        <input type="text" name="nom" th:field="*{nom}" id="" class="form-control" placeholder="nom"
+                            aria-describedby="helpId">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">prenom</label>
+                        <input type="text" name="prenom" th:field="*{prenom}" id="" class="form-control"
+                            placeholder="prenom" aria-describedby="helpId">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Email</label>
+                        <input type="email" name="email" th:field="*{email}" id="" class="form-control"
+                            placeholder="email" aria-describedby="helpId">
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="sexe" th:field="*{sexe}" id="femme"
+                                value="femme">
+                            <label class="form-check-label" for="femme">femme</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="sexe" th:field="*{sexe}" id="homme"
+                                value="homme">
+                            <label class="form-check-label" for="homme">homme</label>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" type="submit">modifier</button>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
